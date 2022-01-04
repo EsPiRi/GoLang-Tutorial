@@ -24,37 +24,40 @@ func bookingApplication() {
 	// var bookings =[]string{}		/////// slice
 	// var bookings []string		/////// another slice
 
-	var firstName string
-	var lastName string
-	var email string
-	var userTickets uint
+	for {
+		var firstName string
+		var lastName string
+		var email string
+		var userTickets uint
 
-	//bookings[0] = firstName + " " + lastName
-	bookings = append(bookings, firstName+" "+lastName)
-	// ask user for their name
-	fmt.Println("Enter your first name: ")
-	fmt.Scan(&firstName)
+		// ask user for their name
+		fmt.Println("Enter your first name: ")
+		fmt.Scan(&firstName)
 
-	fmt.Println("Enter your last name: ")
-	fmt.Scan(&lastName)
+		fmt.Println("Enter your last name: ")
+		fmt.Scan(&lastName)
 
-	fmt.Println("Enter your email address: ")
-	fmt.Scan(&email)
+		fmt.Println("Enter your email address: ")
+		fmt.Scan(&email)
 
-	fmt.Println("Enter number of tickets: ")
-	fmt.Scan(&userTickets)
+		fmt.Println("Enter number of tickets: ")
+		fmt.Scan(&userTickets)
 
-	remainingTickets -= userTickets
-	bookings[0] = firstName + " " + lastName
+		remainingTickets -= userTickets
+		//bookings[0] = firstName + " " + lastName
+		//bookings[0] = firstName + " " + lastName
+		bookings = append(bookings, firstName+" "+lastName)
 
-	/*fmt.Printf("The whole slice: %v\n", bookings)
-	fmt.Printf("The first value: %v\n", bookings[0])
-	fmt.Printf("Slice type: %T\n", bookings)
-	fmt.Printf("Array length: %v\n", len(bookings))*/
+		/*fmt.Printf("The whole slice: %v\n", bookings)
+		fmt.Printf("The first value: %v\n", bookings[0])
+		fmt.Printf("Slice type: %T\n", bookings)
+		fmt.Printf("Array length: %v\n", len(bookings))*/
 
-	fmt.Printf("Thank you %v %v for booking %v tickets. You will receive a confirmation email at %v\n", firstName, lastName, userTickets, email)
-	fmt.Printf("%v tickets remaining for %v\n", remainingTickets, conferenceName)
-	fmt.Printf("These are all our bookings: %v\n", bookings)
+		fmt.Printf("Thank you %v %v for booking %v tickets. You will receive a confirmation email at %v\n", firstName, lastName, userTickets, email)
+		fmt.Printf("%v tickets remaining for %v\n", remainingTickets, conferenceName)
+		fmt.Printf("These are all our bookings: %v\n", bookings)
+	}
+
 }
 
 func main() {
