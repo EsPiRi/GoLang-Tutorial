@@ -42,13 +42,23 @@ func bookingApplication() {
 
 		fmt.Println("Enter your email address: ")
 		fmt.Scan(&email)
-	enter_ticket: /// only for learning, do not use it!!!
+
+		fmt.Println("Enter number of tickets:")
+		_, err := fmt.Scan(&userTickets)
+		/*for err != nil { // for learning, do not use it!!!
+			var userTickets uint = 999
+			fmt.Println("Enter an integer for valid ticket number!!!")
+			fmt.Println("Enter number of tickets: ")
+			_, err = fmt.Scan(&userTickets)
+		}*/
+		/*fmt.Println(userTickets)*/
+		/*enter_ticket: /// only for learning, do not use it!!!
 		fmt.Println("Enter number of tickets: ")
 		_, err := fmt.Scan(&userTickets)
 		if err != nil {
 			fmt.Println("Enter an integer for valid ticket number!!!")
 			goto enter_ticket /// only for learning, do not use it!!!
-		}
+		}*/
 		// fmt.Println(err) check if the given input is integer
 		isValidName := len(firstName) >= 2 && len(lastName) >= 2
 		isValidEmail := strings.Contains(email, "@")
