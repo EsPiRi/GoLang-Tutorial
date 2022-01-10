@@ -42,11 +42,21 @@ func bookingApplication() {
 
 		fmt.Println("Enter your email address: ")
 		fmt.Scan(&email)
-
+	enter_ticket: /// only for learning, do not use it!!!
 		fmt.Println("Enter number of tickets: ")
-		fmt.Scan(&userTickets)
+		_, err := fmt.Scan(&userTickets)
+		if err != nil {
+			fmt.Println("Enter an integer for valid ticket number!!!")
+			goto enter_ticket /// only for learning, do not use it!!!
+		}
+		// fmt.Println(err) check if the given input is integer
+		isValidName := len(firstName) >= 2 && len(lastName) >= 2
+		isValidEmail := strings.Contains(email, "@")
+		isValidTicketNumber := userTickets > 0 && userTickets <= remainingTickets && err != nil
 
-		if userTickets <= remainingTickets {
+		isValidInfo := isValidName && isValidEmail && isValidTicketNumber
+
+		if isValidInfo {
 			remainingTickets -= userTickets
 			//bookings[0] = firstName + " " + lastName
 			//bookings[0] = firstName + " " + lastName
@@ -74,7 +84,18 @@ func bookingApplication() {
 			}
 
 		} else {
-			fmt.Printf("We only have %v tickets remaining, so you can't book %v tickets\n", remainingTickets, userTickets)
+			if !isValidName {
+				fmt.Println("First name or last name you entered is too short!")
+			}
+			if !isValidEmail {
+				fmt.Println("Email address you entered does not contain @ sign!")
+			}
+			if !isValidTicketNumber {
+				fmt.Println("Number of tickets you entered is invalid")
+			}
+
+			//fmt.Println("Your input data is invalid, try again")  /// avoid generic user feedbacks!!!
+			//fmt.Printf("We only have %v tickets remaining, so you can't book %v tickets\n", remainingTickets, userTickets)
 		}
 
 	}
