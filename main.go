@@ -46,6 +46,11 @@ func bookingApplication() {
 		fmt.Println("Enter number of tickets: ")
 		fmt.Scan(&userTickets)
 
+		if userTickets > remainingTickets {
+			fmt.Printf("We only have %v tickets remaining, so you can't book %v tickets\n", remainingTickets, userTickets)
+			continue
+		}
+
 		remainingTickets -= userTickets
 		//bookings[0] = firstName + " " + lastName
 		//bookings[0] = firstName + " " + lastName
@@ -68,9 +73,10 @@ func bookingApplication() {
 		fmt.Printf("The first names of bookings are: %v\n", firstNames)
 
 		if remainingTickets == 0 {
-			fmt.Printf("No tickets left for %v", conferenceName)
+			fmt.Printf("No tickets left for %v. Thank you for your interest. See you next year!", conferenceName)
 			break
 		}
+
 	}
 
 }
