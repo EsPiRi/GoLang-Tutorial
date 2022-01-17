@@ -14,14 +14,11 @@ func bookingApplication() {
 	var remainingTickets uint = conferenceTickets
 	bookings := []string{}
 
-	fmt.Printf("conferenceTickets is %T, remainingTickets is %T, conferenceName is %T\n", conferenceTickets, remainingTickets, conferenceName)
+	//fmt.Printf("conferenceTickets is %T, remainingTickets is %T, conferenceName is %T\n", conferenceTickets, remainingTickets, conferenceName)
 	//fmt.Println("Welcome to", conferenceName, "booking application")
 	//fmt.Println("We have total of", conferenceTickets, "tickets and", remainingTickets, "are still available.")
 	//fmt.Println("Get your tickets here to attend")
-
-	fmt.Printf("Welcome to %v booking application\n", conferenceName)
-	fmt.Printf("We have total of %v tickets and %v are still available.\n", conferenceTickets, remainingTickets)
-	fmt.Println("Get your tickets here to attend")
+	greetUsers(conferenceName, conferenceTickets, remainingTickets)
 
 	// var bookings = [50]string{} 	/////// array
 	// var bookings =[]string{}		/////// slice
@@ -45,6 +42,7 @@ func bookingApplication() {
 
 		fmt.Println("Enter number of tickets:")
 		_, err := fmt.Scan(&userTickets)
+		fmt.Println(err)
 		/*for err != nil { // for learning, do not use it!!!
 			var userTickets uint = 999
 			fmt.Println("Enter an integer for valid ticket number!!!")
@@ -62,7 +60,7 @@ func bookingApplication() {
 		// fmt.Println(err) check if the given input is integer
 		isValidName := len(firstName) >= 2 && len(lastName) >= 2
 		isValidEmail := strings.Contains(email, "@")
-		isValidTicketNumber := userTickets > 0 && userTickets <= remainingTickets && err != nil
+		isValidTicketNumber := userTickets > 0 && userTickets <= remainingTickets //&& err != nil
 
 		isValidInfo := isValidName && isValidEmail && isValidTicketNumber
 
@@ -102,6 +100,7 @@ func bookingApplication() {
 			}
 			if !isValidTicketNumber {
 				fmt.Println("Number of tickets you entered is invalid")
+				fmt.Println(userTickets)
 			}
 
 			//fmt.Println("Your input data is invalid, try again")  /// avoid generic user feedbacks!!!
@@ -110,8 +109,26 @@ func bookingApplication() {
 
 	}
 
-}
+	// city := "London"
 
+	// switch city {
+	// case "New York":
+	// 	//execute code for new york tickets
+	// case "Singapore":
+	// 	//execute code for singapore tickets
+	// case "London":
+	// 	//execute code for london tickets
+	// case "Ankara","Istanbul":
+	//	//execute code for Ankara or Istanbul tickets
+	// default:
+	// 	fmt.Println("City is invalid")
+	// }
+}
+func greetUsers(conferenceName string, conferenceTickets uint, remainingTickets uint) {
+	fmt.Printf("Welcome to %v booking application\n", conferenceName)
+	fmt.Printf("We have total of %v tickets and %v are still available.\n", conferenceTickets, remainingTickets)
+	fmt.Println("Get your tickets here to attend")
+}
 func main() {
 	bookingApplication()
 }
